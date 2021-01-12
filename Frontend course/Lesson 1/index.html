@@ -6,40 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+        body {
+            font-family: 'Didact Gothic', sans-serif;
+            background-color: ghostwhite;
+        }
         ul {
             padding: 0;
             margin: 0;
+            list-style-type: none;
         }
         li {
-            list-style: none;
             padding: 10px 20px;
-            color: wheat;
-            background-color: teal;
             height: fit-content;
+            width: 60px ;
         }
         .main_menu {
             display: flex;
+            position: relative;
+            color: white;
+            background-color: darkred;
+        }
+        .sub_menu, .sub_menu_items {
+            position: absolute;
+            display: none;
+            width: max-content;
+            margin-top: 0%;
+            color: black;
+            background-color: white;
+            box-shadow: 1px 1px 5px gray;
+        }
+
+        .sub_menu {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            margin-top: 10px;
+            margin-left: -20px;
+        }
+
+        .sub_menu_items {
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .main_menu > :first-child:hover .sub_menu {
+            display: block;
+        }
+
+        .sub_menu > :nth-child(2):hover .sub_menu_items {
+            display: inline-block;
+        }
+
+        .main_menu > li:hover {
+            background-color: maroon;
             
         }
-        .sub_menu {
-            position: relative;
+        .sub_menu > li:hover, .sub_menu_items > li:hover {
+            background-color: gainsboro;
+            border-radius: 5px;
         }
-        .sub_menu_items {
-            position: absolute;
-            right: 200;
-            top: 0;
 
-        }
+
     </style>
 </head>
 
 <body>
     <div>
         <ul class="main_menu">
-            <li>Menu 1
-                <ul>
+            <li>Menu 1 
+                <ul class="sub_menu">
                     <li>Cate 1</li>
-                    <li class="sub_menu">Cate 2
+                    <li>Cate 2 ›
                         <ul class="sub_menu_items">
                             <li>Sub 1</li>
                             <li>Sub 2</li>
