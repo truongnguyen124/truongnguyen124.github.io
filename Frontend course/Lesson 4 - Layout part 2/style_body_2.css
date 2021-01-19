@@ -1,0 +1,67 @@
+.main_body_2 {
+    max-width: 1200px;
+    display: flex;
+    width: 80%;
+    margin-left: 9%;
+}
+
+.slogan_1 {
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 1.6;
+}
+
+.email {
+    font-size: 18px;
+    margin-top: 70px;
+    color: #f04e3c;
+    position: relative;
+}
+
+.email::before {
+    content: "";
+    height: 1px;
+    width: 145px;
+    display: block;
+    font-size: 24px;
+    line-height: 1.2;
+    background-color: #f04e3c;
+    position: absolute;
+    top: 150%;
+    left: 0px;
+}
+
+.slogan_2 {
+    font-family: "Prompt",sans-serif;
+    margin-bottom: 40px;
+}
+
+.artist_name, .job_title {
+    color: lightgray;
+    line-height: 1.8;
+    position: relative;
+    width: fit-content;
+}
+
+.artist_name::after {
+    content: "";
+    height: 1px;
+    width: 60px;
+    display: block;
+    background-color: lightgray;
+    position: absolute;
+    top: 50%;
+    left: 120%;
+}
+
+.big_number {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.job_exp {
+    width: 180px;
+    margin-top: 12px;
+    margin-left: 30px;
+    line-height: 2;
+}

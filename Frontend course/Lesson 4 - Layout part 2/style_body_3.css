@@ -1,0 +1,38 @@
+.main_body_3{
+    margin: 300px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.pic_block{
+    width: 370px;
+    margin: 30px;
+}
+
+.pic_bounder{
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.pic_name{
+    width: 100%;
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 24px 0px;
+}
+
+.pic_des {
+    font-size: 18px;
+    font-weight: lighter;
+    color: lightgray;
+}
+
+.pic_demo{
+    transition: transform 1s ease;
+
+}
+
+.pic_demo:hover {
+    transform: scale(1.1);
+}

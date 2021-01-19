@@ -3,7 +3,8 @@
 body {
     font-family: "Prompt",sans-serif;
     background-color: black;
-    height: 1000px;
+    color: white;
+    display: block;
 }
 
 .go_to_top {
@@ -35,6 +36,7 @@ li {
     justify-content: center;
     display: flex;
     margin: 5px;
+    cursor: pointer;
 }
 
 .header {
@@ -60,7 +62,7 @@ li {
     display: flex;
     position: relative;
     color: white;
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
 .contact_button, .portfolio_button {
@@ -78,17 +80,27 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.button_anim {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #f04e3c79;
+    left:-100%;
+    top: 0;
 }
 
 .main_body {
+    max-width: 1200px;
     width: 600px;
-    position: absolute;
-    top: 40%;
-    left: 15%;
+    margin-top: 300px;
+    margin-left: 9%;
 }
 
 .title_1 {
-    color: white;
     position: relative;
     padding-left: 40px;
     color: #f04e3c;
@@ -117,6 +129,17 @@ h1 {
     width: 240px;
 }
 
-.portfolio_button:hover, .contact_button:hover {
-    background-color: #e93b32;
+.portfolio_button:hover .button_anim{
+    animation: left-to-right 0.2s forwards;
+}
+
+.contact_button:hover .button_anim{
+    animation: left-to-right 0.2s forwards;
+}
+
+@keyframes left-to-right {
+    0%   {left: -100%;}
+    25%  {left: -75%;}
+    75%  {left: -25%;}
+    100% {left: 0}
 }
