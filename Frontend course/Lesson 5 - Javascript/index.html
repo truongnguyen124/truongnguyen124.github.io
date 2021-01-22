@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function convertUSDtoVND(a){
+        //     return a * 23000 + ' VND'
+        // }
+        
+        // console.log('Convert USD to VND', convertUSDtoVND(15))
+
+        // function shortenString(str, end){
+        //     let text = ''
+        //     for (i = 0; i < end; i++){
+        //         text = text + str[i]
+        //     }
+        //     return text
+        // }
+
+        // console.log('Ket qua la', shortenString('Xin chao cac ban',8))
+
+        // function upperFirstChar(str){
+        //     text = str.toLowerCase().split('')
+        //     text[0] = text[0].toUpperCase()
+        //     return text.join('')
+        // }
+
+        // console.log('Viet hoa chu cai dau',upperFirstChar('CINNAMON'))
+
+        // function findSecondSmallest (arr){
+        //     arr = arr.sort(function(a, b) {
+        //         return a - b;
+        //     });
+            
+        //     let tempArr = [];
+        //     arr.forEach(
+        //         number => {
+        //             if(!tempArr.includes(number)){
+        //                 tempArr.push(number)
+        //             }
+        //         }
+        //     )
+
+        //     return tempArr[tempArr.length-2]
+
+        // }
+
+        // console.log('So lon thu 2 la: ',findSecondSmallest([3,2,4,6,4,3,3,3,3,3,5,6]))
+
+        // function stringMultiplier (str){
+        //     let result = str
+        //     for(i=1; i<=10;i++){
+        //         result = result + '-' + str
+        //     }
+        //     return result
+        // }
+
+        // console.log('Ket qua la: ', stringMultiplier("123"))
+
+        function tinhtoan(num){
+            let tong = 0
+            let tich = 1
+            let tb_cong = 0
+            let giai_thua = 1
+            for(i=1; i <= num; i++){
+                tong += i
+                tich *= i
+            }
+            tb_cong = tong / i
+
+            return [tong, tich, tb_cong]
+        }
+
+        console.log('Ket qua la: ', tinhtoan(5))
+    </script>
+</head>
+<body>
+    <div>
+        Bài 1 JS
+    </div>
+
+</body>
+</html>

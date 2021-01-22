@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.body {
+    background-color: darkgrey;
+    font-family: 'Roboto', sans-serif;
+}
+
+.calculator {
+    padding: 30px;
+    width: 240px;
+}
+
+.screen {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(56, 56, 56);
+    border: 1px white solid;
+    box-sizing: border-box;
+}
+
+.screen_1 {
+    height: 40%;
+    font-size: 16px;
+    padding: 8px 8px 2px 8px;
+}
+
+.screen_2 {
+    height: 60%;
+    font-size: 32px;
+    padding: 2px 8px 8px 8px;
+}
+
+.screen_1, .screen_2 {
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: transparent;
+    box-sizing: border-box;
+    text-align: end;
+    
+}
+
+
+.calculator_keys {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button {
+    width: 60px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: lightgray;
+    border: 1px white solid;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+}
+
+.btn_grey {
+    background-color: grey;
+}
+
+.btn_lightgrey {
+    background-color: lightgray
+}
+
+.btn_grey:active {
+    background-color: rgb(65, 65, 65);
+}
+
+.btn_lightgrey:active {
+    background-color: grey;
+}
+
+.btn_orange {
+    background-color: orange;
+}
+
+.btn_orange:active {
+    background-color: rgb(141, 92, 0);
+}
+
+.btn_0 {
+    width: 120px;
+}
