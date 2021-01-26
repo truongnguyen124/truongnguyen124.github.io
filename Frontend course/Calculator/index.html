@@ -87,8 +87,8 @@
         }
 
         // Function: Kiểm tra xem chuối phép tính có đang chưa dấu toán tử không 
-        function hasOperator(){
-            return calculator.displayMath.includes('+','-','/','*')
+        function hasOperator(str){
+            return str.includes('+','-','/','*')
         }
 
         // Function: Thay ký tự đặc biệt của dấu nhân và chia thành ký tự đúng
@@ -148,15 +148,13 @@
         // Function: Chia kết quả cho 100 và hiển thị lại
         // Nếu như trên màn hình chuối kết quả bằng rỗng, phép toán lưu trong chuối phép tính sẽ được thực hiện ngay lập tức, rồi sau đó chia 100 và hiện thị lên màn hình
         function percentage(){
-            if(hasOperator()){   
-                mathExecute()     
-                calculator.displayMath = '(' + calculator.displayMath + ')÷100' 
-                calculator.displayValue /= 100
+            mathExecute() 
+            if(hasOperator(calculator.displayMath)){    
+                calculator.displayMath = '(' + calculator.displayMath + ')/100' 
             } else {
-                mathExecute()
-                calculator.displayMath = calculator.displayMath + '÷100'
-                calculator.displayValue /= 100
+                calculator.displayMath = calculator.displayMath + '/100'
             }
+            calculator.displayValue /= 100
             updateDisplay()
         }
 
@@ -230,7 +228,6 @@
         updateDisplay()
         const keys = document.querySelector('.calculator_keys')
         keys.addEventListener('click',(event) => buttonHandler(event))
-
     </script>
 </body>
 </html>
