@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/Font Awesome/css/all.css">
 </head>
 <body>
     <div class="calculator">
@@ -15,14 +16,19 @@
         
         <div class="calculator_keys">
             <button class="button btn_grey all-clear" value="ac">AC</button>
-            <button class="button btn_grey clear" value="c" >C</button>
-            <button class="button btn_grey percentage" value="%">%</button>
-            <button class="button btn_orange operator" value="÷">÷</button>
+            <button class="button btn_grey sqrt">√</button>
+            <button class="button btn_grey square">x²</button>
+            <button class="button btn_orange clear"><i class="fas fa-backspace clear"></i></button>
+
+            <button class="button btn_grey operator" value="(">(</button>
+            <button class="button btn_grey operator" value=")">)</button>
+            <button class="button btn_grey percentage">%</button>
+            <button class="button btn_orange operator" value="/">÷</button>
 
             <button class="button btn_lightgrey digit" value="7">7</button>
             <button class="button btn_lightgrey digit" value="8">8</button>
             <button class="button btn_lightgrey digit" value="9">9</button>
-            <button class="button btn_orange operator" value="×">×</button>
+            <button class="button btn_orange operator" value="*">×</button>
 
             <button class="button btn_lightgrey digit" value="4">4</dibuttonv>
             <button class="button btn_lightgrey digit" value="5">5</button>
@@ -43,11 +49,12 @@
 
     <script>
         const calculator = {
-            displayMath: '0',
-            displayValue: '',
-            inputStatus: true,
+            displayMath: '0', // Biến lưu trữ chuối phép tính, dùng để hiện thị lên màn hình và thực hiện tính toán với eval()
+            displayValue: '', // Biến lưu trữ kết quả tính toán của chuỗi phép tính 
+            inputStatus: true, // Trạng thái nhập liệu, true khi đang nhập phép tính, false khi phép tính vừa được thực hiện xong
         }
 
+        // Function: Đưa kết quả hiện thị lên chuỗi phép tính khi trạng thái nhập liệu đang là false 
         function updateMath() {
             if (calculator.inputStatus == false) {
                 calculator.displayMath = calculator.displayValue
@@ -56,21 +63,46 @@
             }
         }
 
-        function updateDisplay() {
-            const displayMath = document.querySelector('.screen_1')
-            const displayValue = document.querySelector('.screen_2')
-            displayMath.value = calculator.displayMath
-            displayValue.value = calculator.displayValue
+        // Function: Thêm dấu phẩy ngăn cách hàng nghìn
+        function numberWithCommas(num) {
+                return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
         }
 
+        // Function: Hiện thị phép tính và kết quả lên màn hình 
+        function updateDisplay() {
+            const math = document.querySelector('.screen_1')
+            const value = document.querySelector('.screen_2')
+            math.value = numberWithCommas(calculator.displayMath)
+            math.value = changeOperator(math.value)
+            value.value = numberWithCommas(calculator.displayValue)
+        }
+        
+        // Function: Kiểm tra xem ký tự chuối cùng của chuỗi phép tính có phải là một số không 
         function lastCharIsNum() {
+            // debugger
             let str = calculator.displayMath
             let lastChar = str.charAt(str.length-1)
+            lastChar = parseInt(lastChar)
             return Number.isInteger(lastChar)
         }
 
+        // Function: Kiểm tra xem chuối phép tính có đang chưa dấu toán tử không 
+        function hasOperator(){
+            return calculator.displayMath.includes('+','-','/','*')
+        }
+
+        // Function: Thay ký tự đặc biệt của dấu nhân và chia thành ký tự đúng
+        function changeOperator(str){
+            str = str.replace(/\+/g, ' + ')
+            str = str.replace(/\-/g, ' - ')
+            str = str.replace(/\//g, ' ÷ ')
+            str = str.replace(/\*/g, ' × ')
+            return str
+        }
+
+        // Function: Nhập số vào chuối phép tính
         function inputDigit(digit){
-            if (calculator.displayMath==0) {
+            if (calculator.displayMath == '0') {
                 calculator.displayMath = digit
             } else {
                 calculator.displayMath += digit
@@ -78,50 +110,79 @@
             updateDisplay()
         }
 
+        // Function: Nhập dấu toán tử vào chuối phép tính
         function inputOperator(operator){
             updateMath()
+            calculator.displayValue = ''
             calculator.displayMath += operator
             updateDisplay()
         }
 
+        // Function: Xoá ký tự cuối cùng trong chuỗi phép tính, nếu chuối phép tính chỉ có một ký tự thì gán cho chuỗi phép tính bằng 0
         function clear(){
-            calculator.displayMath = calculator.displayMath.slice(0, -1)
-            updateDisplay()
-        }
-
-        function allClear(){
-            calculator.displayMath = '0'
+            if(calculator.displayMath.length > 1){
+                calculator.displayMath = calculator.displayMath.slice(0, -1)
+            } else {
+                calculator.displayMath = '0'
+            }
             calculator.displayValue = ''
             updateDisplay()
         }
 
+        // Function: Xoá toàn bộ dữ liệu
+        function allClear(){
+            calculator.displayMath = '0'
+            calculator.displayValue = ''
+            calculator.inputStatus = true
+            updateDisplay()
+        }
+
+        // Function: Thực hiện phép toán đang được lưu trữ trong chuối phép tính
         function mathExecute(){
-            let math = calculator.displayMath
-            math = math.replace(/÷/g, '/')
-            math = math.replace(/×/g, '*')
-            let res = eval(math)
+            let res = eval(calculator.displayMath)
             calculator.displayValue = res
             calculator.inputStatus = false
             updateDisplay()
         }
 
+        // Function: Chia kết quả cho 100 và hiển thị lại
+        // Nếu như trên màn hình chuối kết quả bằng rỗng, phép toán lưu trong chuối phép tính sẽ được thực hiện ngay lập tức, rồi sau đó chia 100 và hiện thị lên màn hình
         function percentage(){
-            if(!calculator.displayValue==''){
+            if(hasOperator()){   
+                mathExecute()     
+                calculator.displayMath = '(' + calculator.displayMath + ')÷100' 
                 calculator.displayValue /= 100
             } else {
                 mathExecute()
+                calculator.displayMath = calculator.displayMath + '÷100'
                 calculator.displayValue /= 100
             }
             updateDisplay()
         }
 
-        function decimal() {
-            if(lastCharIsNum()) {
-                calculator.displayValue += '.'
+        // Function: Lấy bình phương kết quả và hiển thị
+        function square(){
+            if(hasOperator()){   
+                mathExecute()     
+                calculator.displayMath = '(' + calculator.displayMath + ')÷100' 
+                calculator.displayValue /= 100
+            } else {
+                mathExecute()
+                calculator.displayMath = calculator.displayMath + '÷100'
+                calculator.displayValue /= 100
             }
             updateDisplay()
         }
 
+        // Function: Thêm dấu thập phân, nếu ký tự cuối cùng trong chuỗi phép tính không phải là số thì nút sẽ không có tác dụng
+        function decimal() {
+            if(lastCharIsNum()) {
+                calculator.displayMath += '.'
+            }
+            updateDisplay()
+        }
+
+        // Function: Xử lý tương tác với các nút trên màn hình 
         function buttonHandler(event){
             const target = event.target
             
@@ -136,6 +197,7 @@
             }
             if(target.classList.contains('decimal')){
                 console.log('decimal', target.value)
+                decimal()
                 return
             }
             if(target.classList.contains('digit')){

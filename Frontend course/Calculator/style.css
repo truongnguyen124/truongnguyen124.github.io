@@ -22,18 +22,19 @@
     height: 40%;
     font-size: 16px;
     padding: 8px 8px 2px 8px;
+    color: white;
 }
 
 .screen_2 {
     height: 60%;
     font-size: 32px;
     padding: 2px 8px 8px 8px;
+    color: rgb(255, 224, 124);
 }
 
 .screen_1, .screen_2 {
     width: 100%;
     border: none;
-    color: white;
     background-color: transparent;
     box-sizing: border-box;
     text-align: end;
