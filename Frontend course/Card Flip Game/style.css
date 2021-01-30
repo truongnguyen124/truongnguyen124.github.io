@@ -5,9 +5,10 @@
 
 .grid {
     display: flex;
+    flex-wrap: wrap;
     background-color: lightgray;
-    width: 400px;
-    height: 600px;
+    width: 480px;
+    height: 640px;
     padding: 5px;
 
 }
@@ -17,7 +18,7 @@
 }
 
 .card {
-    width: 100px;
+    width: 110px;
     height: 150px;
     position: relative;
     margin: 5px;
@@ -36,7 +37,6 @@
 }
 
 .front {
-    background-color: rgb(255, 72, 72);
     transform: rotateY(180deg);
     position: absolute;
     top: 0px;
@@ -45,8 +45,6 @@
 
 .back {
     background-color: gray;
-    
-    
 }
 
 .card:hover .back {
