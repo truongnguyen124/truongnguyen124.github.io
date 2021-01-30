@@ -1,0 +1,63 @@
+.body {
+    background-color: lightgray;
+    font-family: 'Roboto', sans-serif;
+}
+
+.grid {
+    display: flex;
+    background-color: lightgray;
+    width: 400px;
+    height: 600px;
+    padding: 5px;
+
+}
+
+.i {
+    
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    position: relative;
+    margin: 5px;
+    
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.front {
+    background-color: rgb(255, 72, 72);
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.back {
+    background-color: gray;
+    
+    
+}
+
+.card:hover .back {
+    transform: rotateY(180deg);
+}
+
+.card:hover .front {
+    transform: rotateY(0deg)
+}
+
+.card .front, .card .back {
+    transition: all 0.5s;
+    backface-visibility: hidden;
+}
