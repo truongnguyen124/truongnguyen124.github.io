@@ -1,0 +1,31 @@
+body {
+    background-color:lightcyan;
+    color:  white;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.wrap {
+    width: 400px;
+    height: fit-content;
+    background-color:rgb(118, 181, 184);
+    padding: 30px 60px 60px 60px;
+    border-radius: 10px;
+}
+
+fieldset {
+    border: none;
+    padding: 10px 0px;
+}
+
+#next {
+    border: none;
+    background-color: white;
+    color: rgb(118, 181, 184);
+    height: 30px;
+    width: 60px;
+    margin-top: 20px;
+}
