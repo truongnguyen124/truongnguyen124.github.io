@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+    <defs>
+        <path id="km5unbenua" d="M8.868 1.334c-4.155 0-7.534 3.688-7.534 8.22 0 4.325 7.788 13.641 14.66 20.519 5.336-5.42 14.672-16.051 14.672-20.518 0-4.533-3.379-8.221-7.534-8.221-2.298 0-4.522 1.206-5.948 3.227L16 6.239 14.816 4.56c-1.426-2.021-3.65-3.227-5.948-3.227zM16 31.959l-.472-.469C11.885 27.881 0 15.632 0 9.555 0 4.285 3.978 0 8.868 0c2.73 0 5.362 1.417 7.037 3.79l.095.136.093-.134C17.77 1.417 20.401 0 23.133 0 28.022 0 32 4.286 32 9.555c0 6.189-13.94 20.34-15.53 21.933l-.47.47z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(-312 -720) translate(312 720)">
+                <mask id="7jwpenanfb" fill="#fff">
+                    <use xlink:href="#km5unbenua"/>
+                </mask>
+                <use fill="#d7d7d7" xlink:href="#km5unbenua"/>
+                <g fill="#d7d7d7" mask="url(#7jwpenanfb)">
+                    <path d="M0 0H32V32H0z"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
