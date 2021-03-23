@@ -1,0 +1,7 @@
+{
+    "students": [
+        {"Firstname":"Bob","Lastname":"Mayer","Email":"bob@mayer.com","Number": "123456789"},
+        {"Firstname":"Steven","Lastname":"Spil","Email":"steven@spill.com","Number": "987654321"},
+        {"Firstname":"Paul","Lastname":"Taucker","Email":"paul@tack.com","Number": "578954321"}
+    ]
+}

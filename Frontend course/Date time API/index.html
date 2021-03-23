@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        // Ex 1
+        function getDay() {
+            let d = new Date()
+            switch (d.getDay()) {
+                case 0:
+                    var day = "SU"
+                    break;
+                case 1:
+                    var day = "MO"
+                    break;
+                case 2:
+                    var day = "TU"
+                    break;
+                case 3:
+                    var day = "WE"
+                    break;
+                case 4:
+                    var day = "TH"
+                    break;
+                case 5:
+                    var day = "FR"
+                    break;
+                case 6:
+                    var day = "SA"
+                    break;
+            }
+            return day
+        }
+
+        // Ex 2
+        function getDateAgo(date, days) {
+            let d = new Date()
+            d.setDate(date.getDate() - days)
+            return d.toString()
+        }
+
+        // Ex 3
+        function getLastDayofMonth(year, month) {
+            let d = new Date()
+            d.setDate(1);
+            d.setMonth(month);
+            d.setFullYear(year)
+            d.setDate(d.getDate() - 1)
+            return d.getDate()
+        }
+
+        // Ex 4
+        function getSecondsToTomorrow() {
+            let now = new Date()
+            let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
+            let diff = tomorrow - now
+            return Math.round(diff / 1000)
+        }
+
+        // Ex 5
+        function formatDate(date) {
+            let now = new Date()
+            let diff = Math.round((now - date) / 1000)
+            let diff_days = ((diff%86400)&100).toString() + "." + ((diff%(86400*30))%100).toString() + "." +((diff%(86400*30*12))%100).toString() + " " + ((diff%3600)%100).toString() + ":" + (diff%60).toString()
+            switch (true) {
+                case (diff < 1):
+                    return "Right now"
+                    break;
+                case (diff < 60):
+                    return diff.toString() + " secs ago"
+                    break;
+                case (diff < 3600):
+                    return Math.round(diff / 60).toString() + " mins ago"
+                    break;
+            }
+            return diff_days
+        }
+
+        //
+    </script>
+</body>
+
+</html>
